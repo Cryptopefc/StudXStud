@@ -1,0 +1,80 @@
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-base);
+  line-height: var(--line-height-body);
+  background:
+    radial-gradient(circle at top, rgba(13, 148, 136, 0.22), transparent 45%),
+    radial-gradient(circle at 85% 10%, rgba(56, 189, 248, 0.14), transparent 32%),
+    var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  line-height: var(--line-height-heading);
+}
+
+p {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--color-primary-soft);
+}
+
+.glass-surface {
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-glass-sm);
+  backdrop-filter: blur(16px) saturate(160%);
+}
+
+.glass-surface-strong {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border-strong);
+  box-shadow: var(--shadow-glass-md);
+  backdrop-filter: blur(24px) saturate(180%);
+}
+
+@supports not (backdrop-filter: blur(4px)) {
+  .glass-surface,
+  .glass-surface-strong {
+    background: var(--color-bg-elevated);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
